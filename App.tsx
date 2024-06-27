@@ -1,57 +1,73 @@
 import React from "react";
 import { SafeAreaView, View, Text, StyleSheet, Button, Alert, Pressable } from "react-native";
+import {NavigationContainer} from '@react-navigation/native'
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Agent from "./src/screens/Agent";
+import Home from "./src/screens/Home";
+
+const Stack = createNativeStackNavigator()
 
 export default function App() {
   return (
-    <SafeAreaView style={[styles.safeAreaView]}>
-      <Text style={[styles.welcomeText]}>병무청 본관에 오신걸 환영합니다!{'\n'} 
-        무엇을 도와드릴까요?
-      </Text>
-      <View style={[styles.view]}>
-        <View style={[styles.content]}>
-          <Pressable 
-            style={[styles.box]} 
-            onPress={() => Alert.alert("신체검사는 민원봉사실 2층을 이용해주십시오.")}
-            >
-            <Text style={[styles.boxText]}>신체검사</Text>
-          </Pressable>
-          <Pressable 
-            style={[styles.box]} 
-            onPress={() => Alert.alert("병역명문가 관련 서류 발급은 민원봉사실 1층을 이용해주십시오.")}
-            >
-            <Text style={[styles.boxText]}>병역명문가</Text>
-          </Pressable>
-          <Pressable 
-            style={[styles.box]} 
-            >
-            <Text style={[styles.boxText]}>예비군</Text>
-          </Pressable>
-        </View>
-        <View style={[styles.content]}>
-          <Pressable 
-            style={[styles.box]} 
-            onPress={() => Alert.alert("병역명문가 관련 서류 발급은 민원봉사실을 이용해주십시오.")}
-            >
-            <Text style={[styles.boxText]}>사회복무요원</Text>
-          </Pressable>
-          <Pressable 
-            style={[styles.box]} 
-            onPress={() => Alert.alert("병역명문가 관련 서류 발급은 민원봉사실을 이용해주십시오.")}
-            >
-            <Text style={[styles.boxText]}>생계 감면</Text>
-          </Pressable>
-          <Pressable 
-            style={[styles.box]} 
-            onPress={() => Alert.alert("병역명문가 관련 서류 발급은 민원봉사실을 이용해주십시오.")}
-            >
-            <Text style={[styles.boxText]}>기타 업무</Text>
-          </Pressable>
-        </View>
-        
-      </View>
-    </SafeAreaView>
+    <NavigationContainer>
+      <SafeAreaView style={[styles.safeAreaView]}>
+        <Stack.Navigator>
+          <Stack.Screen name={"병무청 본관에 오신걸 환영합니다! 무엇을 도와드릴까요?"} component={Home}  />
+        </Stack.Navigator>
+        {/* <Text style={[styles.welcomeText]}>병무청 본관에 오신걸 환영합니다!{'\n'} 
+          무엇을 도와드릴까요?
+        </Text>
+        <View style={[styles.view]}>
+          <View style={[styles.content]}>
+            <Pressable 
+              style={[styles.box]} 
+              onPress={() => Alert.alert("신체검사는 민원봉사실 2층을 이용해주십시오.")}
+              >
+              <Text style={[styles.boxText]}>신체검사</Text>
+            </Pressable>
+
+            <Pressable 
+              style={[styles.box]} 
+              onPress={() => Alert.alert("병역명문가 관련 서류 발급은 민원봉사실 1층을 이용해주십시오.")}
+              >
+              <Text style={[styles.boxText]}>병역명문가</Text>
+            </Pressable>
+
+            <Pressable 
+              style={[styles.box]} 
+              >
+              <Text style={[styles.boxText]}>예비군</Text>
+            </Pressable>
+          </View>
+          <View style={[styles.content]}>
+            <Pressable 
+              style={[styles.box]} 
+              onPress={() => Alert.alert("병역명문가 관련 서류 발급은 민원봉사실을 이용해주십시오.")}
+              >
+              <Text style={[styles.boxText]}>사회복무요원</Text>
+            </Pressable>
+
+            <Pressable 
+              style={[styles.box]} 
+              onPress={() => Alert.alert("병역명문가 관련 서류 발급은 민원봉사실을 이용해주십시오.")}
+              >
+              <Text style={[styles.boxText]}>생계 감면</Text>
+            </Pressable>
+
+            <Pressable 
+              style={[styles.box]} 
+              onPress={() => Alert.alert("병역명문가 관련 서류 발급은 민원봉사실을 이용해주십시오.")}
+              >
+              <Text style={[styles.boxText]}>기타 업무</Text>
+            </Pressable>
+          </View>
+          
+        </View> */}
+      </SafeAreaView>
+    </NavigationContainer>
   )
 }
+
 // prettier-ignore
 const styles = StyleSheet.create({
   safeAreaView: {flex: 1, padding: 10,},
