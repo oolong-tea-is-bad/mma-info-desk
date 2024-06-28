@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import { SafeAreaView, View, Text, StyleSheet, Button, Alert, Pressable } from "react-native";
 import {NavigationContainer, useNavigation} from '@react-navigation/native'
+import { MD2Colors as Colors } from "react-native-paper";
 
 export default function Home() {
     const navigation = useNavigation()
@@ -8,9 +9,6 @@ export default function Home() {
 
   return (
     <SafeAreaView style={[styles.safeAreaView]}>
-        {/* <Text style={[styles.welcomeText]}>병무청 본관에 오신걸 환영합니다!{'\n'} 
-            무엇을 도와드릴까요?
-        </Text> */}
         <View style={[styles.view]}>
             <View style={[styles.content]}>
             <Pressable 
@@ -63,12 +61,12 @@ export default function Home() {
 
 // prettier-ignore
 const styles = StyleSheet.create({
-  safeAreaView: {flex: 1, padding: 10,},
-  view: {height: '100%', borderWidth: 1, flex: 2, justifyContent: 'space-evenly'},
-  welcomeText: {fontWeight: "bold", fontSize: 30, textAlign: 'center', borderWidth: 1, marginTop: 10},
-  content: {flexDirection: 'row', justifyContent: 'space-evenly', borderWidth: 1},
-  box: {width: 300, height: 300, backgroundColor: 'orange', borderWidth: 1, justifyContent: 'center',
+  safeAreaView: {flex: 1},
+  view: {height: '100%', flex: 2, justifyContent: 'space-evenly'},
+  welcomeText: {fontWeight: "bold", fontSize: 30, textAlign: 'center', marginTop: 10},
+  content: {flexDirection: 'row', justifyContent: 'space-evenly'},
+  box: {width: 300, height: 300, backgroundColor: Colors.blueGrey500, justifyContent: 'center',
     alignItems: 'center', borderRadius: 4
   },
-  boxText: {fontSize: 30}
+  boxText: {fontSize: 30, color: Colors.white}
 })

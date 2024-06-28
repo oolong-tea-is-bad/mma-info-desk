@@ -2,6 +2,8 @@ import React from "react";
 import { SafeAreaView, View, Text, StyleSheet, Button, Alert, Pressable } from "react-native";
 import {NavigationContainer} from '@react-navigation/native'
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { MD2Colors as Colors } from "react-native-paper";
+
 import Agent from "./src/screens/Agent";
 import Home from "./src/screens/Home";
 
@@ -12,57 +14,28 @@ export default function App() {
     <NavigationContainer>
       <SafeAreaView style={[styles.safeAreaView]}>
         <Stack.Navigator>
-          <Stack.Screen name={"병무청 본관에 오신걸 환영합니다! 무엇을 도와드릴까요?"} component={Home}  />
+          <Stack.Screen 
+            name={"Home"} 
+            component={Home} 
+            options={{ 
+              title: '병무청에 오신것을 환영합니다! 어떤 것을 도와드릴까요?' , 
+              headerStyle: {
+                backgroundColor: Colors.blue700,
+                },
+              headerTintColor: Colors.white,
+              headerShadowVisible: false,
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              }
+            }} />
+          <Stack.Screen 
+            name={"Agent"} 
+            component={Agent} 
+            options={{
+              title: "아래 빈칸들을 작성하신 이후 1층 사회복무과로 가주시길 바랍니다."
+            }}
+            />
         </Stack.Navigator>
-        {/* <Text style={[styles.welcomeText]}>병무청 본관에 오신걸 환영합니다!{'\n'} 
-          무엇을 도와드릴까요?
-        </Text>
-        <View style={[styles.view]}>
-          <View style={[styles.content]}>
-            <Pressable 
-              style={[styles.box]} 
-              onPress={() => Alert.alert("신체검사는 민원봉사실 2층을 이용해주십시오.")}
-              >
-              <Text style={[styles.boxText]}>신체검사</Text>
-            </Pressable>
-
-            <Pressable 
-              style={[styles.box]} 
-              onPress={() => Alert.alert("병역명문가 관련 서류 발급은 민원봉사실 1층을 이용해주십시오.")}
-              >
-              <Text style={[styles.boxText]}>병역명문가</Text>
-            </Pressable>
-
-            <Pressable 
-              style={[styles.box]} 
-              >
-              <Text style={[styles.boxText]}>예비군</Text>
-            </Pressable>
-          </View>
-          <View style={[styles.content]}>
-            <Pressable 
-              style={[styles.box]} 
-              onPress={() => Alert.alert("병역명문가 관련 서류 발급은 민원봉사실을 이용해주십시오.")}
-              >
-              <Text style={[styles.boxText]}>사회복무요원</Text>
-            </Pressable>
-
-            <Pressable 
-              style={[styles.box]} 
-              onPress={() => Alert.alert("병역명문가 관련 서류 발급은 민원봉사실을 이용해주십시오.")}
-              >
-              <Text style={[styles.boxText]}>생계 감면</Text>
-            </Pressable>
-
-            <Pressable 
-              style={[styles.box]} 
-              onPress={() => Alert.alert("병역명문가 관련 서류 발급은 민원봉사실을 이용해주십시오.")}
-              >
-              <Text style={[styles.boxText]}>기타 업무</Text>
-            </Pressable>
-          </View>
-          
-        </View> */}
       </SafeAreaView>
     </NavigationContainer>
   )
@@ -70,7 +43,7 @@ export default function App() {
 
 // prettier-ignore
 const styles = StyleSheet.create({
-  safeAreaView: {flex: 1, padding: 10,},
+  safeAreaView: {flex: 1, },
   view: {height: '100%', borderWidth: 1, flex: 2, justifyContent: 'space-evenly'},
   welcomeText: {fontWeight: "bold", fontSize: 30, textAlign: 'center', borderWidth: 1, marginTop: 10},
   content: {flexDirection: 'row', justifyContent: 'space-evenly', borderWidth: 1},
