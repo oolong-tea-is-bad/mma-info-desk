@@ -6,6 +6,8 @@ import { MD2Colors as Colors } from "react-native-paper";
 
 import Agent from "./src/screens/Agent";
 import Home from "./src/screens/Home";
+import Examination from "./src/screens/Examination";
+import Mobilization from "./src/screens/Mobilization";
 
 const Stack = createNativeStackNavigator()
 
@@ -34,7 +36,21 @@ export default function App() {
             options={{
               title: "아래 빈칸들을 작성하신 이후 1층 사회복무과로 가주시길 바랍니다."
             }}
-            />
+          />
+          <Stack.Screen 
+            name={"Examination"} 
+            component={Examination} 
+            options={{
+              title: "아래 빈칸들을 작성하신 이후 2층 병역판정검사과로 가주시길 바랍니다."
+            }}
+          />
+          <Stack.Screen 
+            name={"Mobilization"} 
+            component={Mobilization} 
+            options={{
+              title: "아래 빈칸들을 작성하신 이후 1층 동원관리과로 가주시길 바랍니다."
+            }}
+          />
         </Stack.Navigator>
       </SafeAreaView>
     </NavigationContainer>

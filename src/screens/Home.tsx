@@ -6,6 +6,8 @@ import { MD2Colors as Colors } from "react-native-paper";
 export default function Home() {
     const navigation = useNavigation()
     const goAgent = useCallback(() => navigation.navigate('Agent'), [])
+    const goExamination = useCallback(() => navigation.navigate('Examination'), [])
+    const goMobilization = useCallback(() => navigation.navigate('Mobilization'), [])
 
   return (
     <SafeAreaView style={[styles.safeAreaView]}>
@@ -27,6 +29,7 @@ export default function Home() {
 
             <Pressable 
                 style={[styles.box]} 
+                onPress={goMobilization}
                 >
                 <Text style={[styles.boxText]}>예비군</Text>
             </Pressable>
@@ -41,14 +44,16 @@ export default function Home() {
 
             <Pressable 
                 style={[styles.box]} 
-                onPress={() => Alert.alert("병역명문가 관련 서류 발급은 민원봉사실을 이용해주십시오.")}
+                onPress={goExamination}
                 >
                 <Text style={[styles.boxText]}>생계 감면</Text>
             </Pressable>
 
             <Pressable 
                 style={[styles.box]} 
-                onPress={() => Alert.alert("병역명문가 관련 서류 발급은 민원봉사실을 이용해주십시오.")}
+                onPress={() => Alert.alert(
+                    "기타 업무 상황들은 아래 연락처로 연락 부탁드리겠습니다: \n 010-xxxx-xxxx | 010-xxxx-xxxx"
+                )}
                 >
                 <Text style={[styles.boxText]}>기타 업무</Text>
             </Pressable>

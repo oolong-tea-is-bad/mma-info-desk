@@ -9,7 +9,6 @@ export type TestInputProps = {
 
 const TestInput: FC<TestInputProps> = ({category, placeholder}) => {
     const [text, setText] = useState('')
-
     const onChangeText = (inputText: string) => {
         setText(inputText)
     }
@@ -19,7 +18,6 @@ const TestInput: FC<TestInputProps> = ({category, placeholder}) => {
             <Text style={[styles.text]}>{category} : </Text>
             <TextInput
                 onChangeText={onChangeText}
-                value={text}
                 placeholder={placeholder}
                 style={styles.input}
             />
