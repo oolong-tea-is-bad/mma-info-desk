@@ -4,5 +4,6 @@ declare namespace ReactNavigation {
     Agent: undefined;
     Examination: undefined;
     Mobilization: undefined;
+    NameList: undefined;
   }
 }

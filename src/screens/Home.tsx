@@ -2,12 +2,14 @@ import React, { useCallback } from "react";
 import { SafeAreaView, View, Text, StyleSheet, Button, Alert, Pressable } from "react-native";
 import {NavigationContainer, useNavigation} from '@react-navigation/native'
 import { MD2Colors as Colors } from "react-native-paper";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Home() {
     const navigation = useNavigation()
     const goAgent = useCallback(() => navigation.navigate('Agent'), [])
     const goExamination = useCallback(() => navigation.navigate('Examination'), [])
     const goMobilization = useCallback(() => navigation.navigate('Mobilization'), [])
+    const goNameList = useCallback(() => navigation.navigate('NameList'), [])
 
   return (
     <SafeAreaView style={[styles.safeAreaView]}>
@@ -57,6 +59,13 @@ export default function Home() {
                 >
                 <Text style={[styles.boxText]}>기타 업무</Text>
             </Pressable>
+
+            <Pressable 
+                style={[styles.box]} 
+                onPress={goNameList}
+                >
+                <Text style={[styles.boxText]}>명부 확인</Text>
+            </Pressable>
             </View>
             
         </View>
@@ -73,5 +82,6 @@ const styles = StyleSheet.create({
   box: {width: 300, height: 300, backgroundColor: Colors.blueGrey500, justifyContent: 'center',
     alignItems: 'center', borderRadius: 4
   },
-  boxText: {fontSize: 30, color: Colors.white}
+  boxText: {fontSize: 30, color: Colors.white},
+  fetch: {borderWidth: 1}
 })

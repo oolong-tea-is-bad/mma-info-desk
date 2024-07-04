@@ -8,6 +8,7 @@ import Agent from "./src/screens/Agent";
 import Home from "./src/screens/Home";
 import Examination from "./src/screens/Examination";
 import Mobilization from "./src/screens/Mobilization";
+import NameList from "./src/screens/NameList";
 
 const Stack = createNativeStackNavigator()
 
@@ -49,6 +50,13 @@ export default function App() {
             component={Mobilization} 
             options={{
               title: "아래 빈칸들을 작성하신 이후 1층 동원관리과로 가주시길 바랍니다."
+            }}
+          />
+          <Stack.Screen 
+            name={"NameList"} 
+            component={NameList} 
+            options={{
+              title: "명부 확인"
             }}
           />
         </Stack.Navigator>

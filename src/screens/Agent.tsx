@@ -1,43 +1,41 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import { SafeAreaView, View, Text, Button, Pressable, StyleSheet, TextInput,} from "react-native";
 import { useState } from "react";
 // prettier-ignore
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import TestInput from "../components/TestInput";
-import SubmitButton from "../components/SubmitButton";
 import moment from "moment";
 
 export default function Agent() {
-    const storeData = async (value: string) => {
-        try {
-            await AsyncStorage.setItem('my-key', value);
-        } catch (e) {
-            // saving error
-        }
-    };
+    const clearAll = async () => {
+      try {
+        await AsyncStorage.clear()
+      } catch(e) {
+        // clear error
+      }
     
-    const getData = async () => {
-        try {
-            const value = await AsyncStorage.getItem('my-key');
-            if (value !== null) {
-                return value
-            }
-        } catch (e) {
-            // error reading value
-        }
-    };
-
-    var test = moment().format('YYYY-MM-DD HH:mm:ss')
-
-    const [text, setText] = useState('')
-    const onChangeText = (inputText: string) => {
-        setText(inputText)
+      console.log('Cleared.')
     }
+
+    useEffect(() => {clearAll()}, [])
+
+    const setData = async (key: string, value: { name: string; place: string; etc: string; }) => {
+        try {
+          await AsyncStorage.setItem(key, JSON.stringify(value));
+          console.log(`setItem... ${key} : ${value}`);
+        } catch (e) {
+          throw e;
+        }
+    };
+
+    const [user, setUser] = useState({
+      name: '',
+      place: '',
+      etc: ''
+    })
     
-    const onPress = useCallback(() => {storeData(text)}, [])
-
-    const testData = getData()
-
+    var currTime = moment().format('MMMM Do YYYY, h:mm:ss a')
+    const submit = () => {setData(currTime, user)}
+    
     return (
         <SafeAreaView>
             <View>
@@ -45,19 +43,32 @@ export default function Agent() {
                 <View style={styles.container}>
                     <Text style={[styles.text]}>성함 : </Text>
                     <TextInput
-                        onChangeText={onChangeText}
+                        onChangeText={(text) => setUser({...user, name: text})}
                         placeholder="예) 홍길동"
                         style={styles.input}
                     />
                 </View>
-                <TestInput category="시/군/구" placeholder="예) 해운대구" />
-                <TestInput category="비고" placeholder="예) 담당자 상담" />
+                <View style={styles.container}>
+                    <Text style={[styles.text]}>시/군/구 : </Text>
+                    <TextInput
+                        onChangeText={(text) => setUser({...user, place: text})}
+                        placeholder="예) 해운대구"
+                        style={styles.input}
+                    />
+                </View>
+                <View style={styles.container}>
+                    <Text style={[styles.text]}>비고 : </Text>
+                    <TextInput
+                        onChangeText={(text) => setUser({...user, etc: text})}
+                        placeholder="예) 담당자 상담"
+                        style={styles.input}
+                    />
+                </View>
                 
-                <Pressable style={[styles.submitButton]} onPress={onPress}>
+                <Pressable style={[styles.submitButton]} onPress={submit}>
                     <Text style={[styles.text]}>제출</Text>
                 </Pressable>
-                <Text>현재시각: {test}</Text>
-                {/* <Text>{testData}</Text> */}
+
             </View>
         </SafeAreaView>
     )
