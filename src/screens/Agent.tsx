@@ -1,9 +1,10 @@
-import React, { useCallback, useEffect } from "react";
-import { SafeAreaView, View, Text, Button, Pressable, StyleSheet, TextInput,} from "react-native";
+import React from "react";
+import { SafeAreaView, View, Text, Pressable, StyleSheet, TextInput,} from "react-native";
 import { useState } from "react";
 // prettier-ignore
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import moment from "moment";
+import 'moment/locale/ko'
 
 export default function Agent() {
     const clearAll = async () => {
@@ -15,25 +16,20 @@ export default function Agent() {
     
       console.log('Cleared.')
     }
-
-    useEffect(() => {clearAll()}, [])
-
+    
     const setData = async (key: string, value: { name: string; place: string; etc: string; }) => {
         try {
           await AsyncStorage.setItem(key, JSON.stringify(value));
+        
           console.log(`setItem... ${key} : ${value}`);
         } catch (e) {
           throw e;
         }
     };
 
-    const [user, setUser] = useState({
-      name: '',
-      place: '',
-      etc: ''
-    })
+    const [user, setUser] = useState({name: '', place: '', etc: '', department: '사회복무과'})
     
-    var currTime = moment().format('MMMM Do YYYY, h:mm:ss a')
+    var currTime = moment().format('일자: YYYY-MM-DD | 방문 시각: a hh:mm:ss')
     const submit = () => {setData(currTime, user)}
     
     return (
@@ -67,6 +63,10 @@ export default function Agent() {
                 
                 <Pressable style={[styles.submitButton]} onPress={submit}>
                     <Text style={[styles.text]}>제출</Text>
+                </Pressable>
+
+                <Pressable style={[styles.submitButton]} onPress={clearAll}>
+                    <Text style={[styles.text]}>삭제</Text>
                 </Pressable>
 
             </View>
