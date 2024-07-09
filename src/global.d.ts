@@ -5,5 +5,6 @@ declare namespace ReactNavigation {
     Examination: undefined;
     Mobilization: undefined;
     NameList: undefined;
+    TabNavigator: undefined;
   }
 }
