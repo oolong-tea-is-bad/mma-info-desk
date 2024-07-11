@@ -9,6 +9,7 @@ import {
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { MD2Colors as Colors } from 'react-native-paper'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 export default function Home() {
   const navigation = useNavigation()
@@ -24,7 +25,7 @@ export default function Home() {
   )
 
   return (
-    <SafeAreaView style={[styles.safeAreaView]}>
+    <SafeAreaView>
       <View style={[styles.view]}>
         <View style={[styles.content]}>
           <Pressable
@@ -71,6 +72,10 @@ export default function Home() {
             <Text style={[styles.boxText]}>기타 업무</Text>
           </Pressable>
         </View>
+        <View>
+          {/* <Icon name="comment-question-outline" size={50} /> */}
+          <Text>도움말</Text>
+        </View>
       </View>
     </SafeAreaView>
   )
@@ -79,12 +84,12 @@ export default function Home() {
 // prettier-ignore
 const styles = StyleSheet.create({
   safeAreaView: {flex: 1},
-  view: {height: '100%', flex: 2, justifyContent: 'space-evenly'},
+  view: {height: '100%', justifyContent: 'space-evenly'},
   welcomeText: {fontWeight: "bold", fontSize: 30, textAlign: 'center', marginTop: 10},
   content: {flexDirection: 'row', justifyContent: 'space-evenly'},
   box: {width: 300, height: 300, backgroundColor: Colors.blueGrey500, justifyContent: 'center',
     alignItems: 'center', borderRadius: 4
   },
   boxText: {fontSize: 30, color: Colors.white},
-  fetch: {borderWidth: 1}
+  fetch: {borderWidth: 1},
 })

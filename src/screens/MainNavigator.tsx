@@ -24,12 +24,20 @@ export default function MainNavigator() {
         <Text style={[styles.welcomeText]}>
           병무청에 오신것을 환영합니다! 어떤 것을 도와드릴까요?
         </Text>
-        <Icon
-          size={50}
-          name="format-list-bulleted"
-          style={[styles.icon]}
-          onPress={goLogin}
-        />
+        <View style={[styles.viewIcon]}>
+          {/* <Icon
+            size={50}
+            name="comment-question-outline"
+            style={[styles.icon, { paddingRight: 10 }]}
+            // onPress={goLogin}
+          /> */}
+          <Icon
+            size={50}
+            name="format-list-bulleted"
+            style={[styles.icon, { paddingRight: 20 }]}
+            onPress={goLogin}
+          />
+        </View>
       </View>
     )
   }
@@ -86,7 +94,7 @@ export default function MainNavigator() {
         name={'Login'}
         component={Login}
         options={{
-          title: '로그인 테스트',
+          title: '로그인',
         }}
       />
     </Stack.Navigator>
@@ -102,5 +110,6 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between', 
     },
     welcomeText: { fontWeight: "bold", fontSize: 25, color: Colors.white },
-    icon : {paddingRight: 20, color: Colors.white}
+    viewIcon: {flexDirection: 'row'},
+    icon : { color: Colors.white}
 })
