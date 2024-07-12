@@ -6,9 +6,11 @@ import {
   Pressable,
   StyleSheet,
   TextInput,
+  Alert,
 } from 'react-native'
 import { useState } from 'react'
-
+import { MD2Colors as Colors } from 'react-native-paper'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import moment from 'moment'
 import 'moment/locale/ko'
@@ -40,58 +42,90 @@ export default function Agent() {
   var currTime = moment().format('일자: YYYY-MM-DD | 방문 시각: a hh:mm:ss')
   const submit = () => {
     setData(currTime, user)
+    Alert.alert(`정보가 입력되었습니다! 2층 사회복무과로 가주십시오.`)
   }
 
   return (
-    <SafeAreaView>
-      <View>
-        {/* 일자 방문시각 시군구 성명 방문 목적 안내자 비고 */}
-        <View style={styles.container}>
-          <Text style={[styles.text]}>성함 : </Text>
-          <TextInput
-            onChangeText={(text) => setUser({ ...user, name: text })}
-            placeholder="예) 홍길동"
-            style={styles.input}
-          />
+    <SafeAreaView style={[styles.safeAreaView]}>
+      <KeyboardAwareScrollView>
+        <Text style={[styles.wlecomeText]}>
+          아래 빈 칸에 '성함', '사시는 지역구', '방문 목적'을 작성해주신 이후{' '}
+          {'\n'}
+          2층 사회복무과로 이동해주시길 바랍니다.
+        </Text>
+        <View style={[styles.view]}>
+          <View>
+            <View style={[styles.container]}>
+              <Text style={[styles.text]}>성함 : </Text>
+              <TextInput
+                underlineColorAndroid={Colors.grey500}
+                onChangeText={(text) => setUser({ ...user, name: text })}
+                placeholder="예) 홍길동"
+                style={styles.input}
+              />
+            </View>
+            <View style={[styles.container]}>
+              <Text style={[styles.text]}>시/군/구 : </Text>
+              <TextInput
+                underlineColorAndroid={Colors.grey500}
+                onChangeText={(text) => setUser({ ...user, place: text })}
+                placeholder="예) 해운대구"
+                style={styles.input}
+              />
+            </View>
+            <View style={[styles.container]}>
+              <Text style={[styles.text]}>방문 목적 : </Text>
+              <TextInput
+                underlineColorAndroid={Colors.grey500}
+                onChangeText={(text) => setUser({ ...user, etc: text })}
+                placeholder="예) 담당자 상담"
+                style={styles.input}
+              />
+            </View>
+          </View>
+          <View style={[styles.border]}>
+            <Text>굳건이 아이콘?</Text>
+          </View>
         </View>
-        <View style={styles.container}>
-          <Text style={[styles.text]}>시/군/구 : </Text>
-          <TextInput
-            onChangeText={(text) => setUser({ ...user, place: text })}
-            placeholder="예) 해운대구"
-            style={styles.input}
-          />
-        </View>
-        <View style={styles.container}>
-          <Text style={[styles.text]}>비고 : </Text>
-          <TextInput
-            onChangeText={(text) => setUser({ ...user, etc: text })}
-            placeholder="예) 담당자 상담"
-            style={styles.input}
-          />
-        </View>
-
         <Pressable style={[styles.submitButton]} onPress={submit}>
-          <Text style={[styles.text]}>제출</Text>
+          <Text style={[styles.text, { color: Colors.white }]}>제출</Text>
         </Pressable>
-      </View>
+      </KeyboardAwareScrollView>
     </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
-  container: { flexDirection: 'row', padding: 10, borderWidth: 1 },
+  border: { borderWidth: 1 },
+  safeAreaView: { backgroundColor: Colors.white, height: '100%', padding: 20 },
+  view: {
+    marginTop: 30,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  wlecomeText: { fontWeight: 'bold', fontSize: 24 },
+  container: {
+    width: '40%',
+    justifyContent: 'space-between',
+    marginBottom: 30,
+  },
   input: {
-    height: 40,
-    width: 200,
-    borderColor: 'black',
-    borderWidth: 1,
+    marginTop: 5,
+    fontSize: 20,
+    borderRadius: 5,
+    width: 400,
   },
   submitButton: {
-    borderWidth: 1,
-    width: 50,
+    width: 100,
     height: 50,
-    backgroundColor: 'lightblue',
+    backgroundColor: Colors.blue500,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 5,
+    marginTop: 30,
   },
-  text: { fontWeight: 'bold', fontSize: 20 },
+  text: {
+    fontWeight: 'bold',
+    fontSize: 26,
+  },
 })

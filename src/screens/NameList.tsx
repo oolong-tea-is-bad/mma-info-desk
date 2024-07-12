@@ -64,7 +64,7 @@ export default function NameList() {
   }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={[styles.safeAreaView]}>
       <FlatList
         data={pairs}
         renderItem={renderItem}
@@ -72,21 +72,28 @@ export default function NameList() {
         ItemSeparatorComponent={() => <View style={[styles.container]} />}
         extraData={pairs}
       />
-
       <Pressable style={[styles.submitButton]} onPress={shouldDelete}>
-        <Text style={[styles.text]}>삭제</Text>
+        <Text style={[styles.text, { color: Colors.white }]}>삭제</Text>
       </Pressable>
     </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
-  container: { borderWidth: 0.5, borderColor: Colors.grey500 },
-  text: { fontWeight: 'bold', fontSize: 20, borderWidth: 1, padding: 10 },
+  safeAreaView: { backgroundColor: Colors.white, height: '100%' },
+  container: { borderWidth: 1, borderColor: Colors.grey500 },
+  text: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    padding: 10,
+    color: Colors.grey500,
+  },
   submitButton: {
-    borderWidth: 1,
     width: 70,
     height: 50,
-    backgroundColor: 'lightblue',
+    backgroundColor: Colors.red500,
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 })

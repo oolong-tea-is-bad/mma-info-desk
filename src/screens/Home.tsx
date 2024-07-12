@@ -9,7 +9,6 @@ import {
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { MD2Colors as Colors } from 'react-native-paper'
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 export default function Home() {
   const navigation = useNavigation()
@@ -23,10 +22,13 @@ export default function Home() {
     () => navigation.navigate('Mobilization'),
     []
   )
+  const goHelp = useCallback(() => {
+    navigation.navigate('Help')
+  }, [])
 
   return (
-    <SafeAreaView>
-      <View style={[styles.view]}>
+    <SafeAreaView style={[styles.flex, { backgroundColor: Colors.white }]}>
+      <View style={[styles.view, styles.flex]}>
         <View style={[styles.content]}>
           <Pressable
             style={[styles.box]}
@@ -72,24 +74,39 @@ export default function Home() {
             <Text style={[styles.boxText]}>기타 업무</Text>
           </Pressable>
         </View>
-        <View>
-          {/* <Icon name="comment-question-outline" size={50} /> */}
-          <Text>도움말</Text>
-        </View>
       </View>
+
+      <Pressable style={[styles.help]} onPress={goHelp}>
+        <Text style={[styles.helpText]}>?</Text>
+      </Pressable>
     </SafeAreaView>
   )
 }
 
-// prettier-ignore
 const styles = StyleSheet.create({
-  safeAreaView: {flex: 1},
-  view: {height: '100%', justifyContent: 'space-evenly'},
-  welcomeText: {fontWeight: "bold", fontSize: 30, textAlign: 'center', marginTop: 10},
-  content: {flexDirection: 'row', justifyContent: 'space-evenly'},
-  box: {width: 300, height: 300, backgroundColor: Colors.blueGrey500, justifyContent: 'center',
-    alignItems: 'center', borderRadius: 4
+  border: { borderWidth: 1 },
+  flex: { flex: 1 },
+  view: { justifyContent: 'space-around' },
+  content: { flexDirection: 'row', justifyContent: 'space-evenly' },
+  box: {
+    width: 300,
+    height: 300,
+    backgroundColor: Colors.blueGrey500,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 4,
   },
-  boxText: {fontSize: 30, color: Colors.white},
-  fetch: {borderWidth: 1},
+  boxText: { fontSize: 30, color: Colors.white },
+  help: { flexDirection: 'row-reverse', marginRight: 20, marginBottom: 20 },
+  helpText: {
+    borderRadius: 5,
+    width: 70,
+    height: 60,
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    fontWeight: 'bold',
+    fontSize: 40,
+    color: Colors.white,
+    backgroundColor: Colors.blue500,
+  },
 })

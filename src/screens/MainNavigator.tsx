@@ -11,11 +11,11 @@ import Examination from './Examination'
 import Mobilization from './Mobilization'
 import NameList from './NameList'
 import Login from './Login'
+import Help from './Help'
 
 export default function MainNavigator() {
   const Stack = createNativeStackNavigator()
   const navigation = useNavigation()
-  const goNameList = useCallback(() => navigation.navigate('NameList'), [])
   const goLogin = useCallback(() => navigation.navigate('Login'), [])
 
   function LogoTitle() {
@@ -25,12 +25,6 @@ export default function MainNavigator() {
           병무청에 오신것을 환영합니다! 어떤 것을 도와드릴까요?
         </Text>
         <View style={[styles.viewIcon]}>
-          {/* <Icon
-            size={50}
-            name="comment-question-outline"
-            style={[styles.icon, { paddingRight: 10 }]}
-            // onPress={goLogin}
-          /> */}
           <Icon
             size={50}
             name="format-list-bulleted"
@@ -63,24 +57,21 @@ export default function MainNavigator() {
         name={'Agent'}
         component={Agent}
         options={{
-          title:
-            '아래 빈칸들을 작성하신 이후 1층 사회복무과로 가주시길 바랍니다.',
+          title: '사회복무과',
         }}
       />
       <Stack.Screen
         name={'Examination'}
         component={Examination}
         options={{
-          title:
-            '아래 빈칸들을 작성하신 이후 2층 병역판정검사과로 가주시길 바랍니다.',
+          title: '병역판정검사과',
         }}
       />
       <Stack.Screen
         name={'Mobilization'}
         component={Mobilization}
         options={{
-          title:
-            '아래 빈칸들을 작성하신 이후 1층 동원관리과로 가주시길 바랍니다.',
+          title: '동원관리과',
         }}
       />
       <Stack.Screen
@@ -95,6 +86,13 @@ export default function MainNavigator() {
         component={Login}
         options={{
           title: '로그인',
+        }}
+      />
+      <Stack.Screen
+        name={'Help'}
+        component={Help}
+        options={{
+          title: '도움말',
         }}
       />
     </Stack.Navigator>

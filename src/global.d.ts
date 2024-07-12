@@ -6,5 +6,6 @@ declare namespace ReactNavigation {
     Mobilization: undefined
     NameList: undefined
     Login: undefined
+    Help: undefined
   }
 }
