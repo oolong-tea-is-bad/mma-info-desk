@@ -7,6 +7,7 @@ import {
   StyleSheet,
   TextInput,
   Alert,
+  Image,
 } from 'react-native'
 import { useState } from 'react'
 import { MD2Colors as Colors } from 'react-native-paper'
@@ -42,19 +43,19 @@ export default function Agent() {
   var currTime = moment().format('일자: YYYY-MM-DD | 방문 시각: a hh:mm:ss')
   const submit = () => {
     setData(currTime, user)
-    Alert.alert(`정보가 입력되었습니다! 2층 사회복무과로 가주십시오.`)
+    Alert.alert(`2층 사회복무과로 가주십시오.`)
   }
 
   return (
     <SafeAreaView style={[styles.safeAreaView]}>
       <KeyboardAwareScrollView>
-        <Text style={[styles.wlecomeText]}>
-          아래 빈 칸에 '성함', '사시는 지역구', '방문 목적'을 작성해주신 이후{' '}
-          {'\n'}
-          2층 사회복무과로 이동해주시길 바랍니다.
-        </Text>
         <View style={[styles.view]}>
           <View>
+            <Text style={[styles.wlecomeText]}>
+              아래 빈 칸에 '성함', '사시는 지역구', '방문 목적'을 작성해주시고
+              {'\n'}
+              제출 버튼을 눌러주세요.
+            </Text>
             <View style={[styles.container]}>
               <Text style={[styles.text]}>성함 : </Text>
               <TextInput
@@ -69,7 +70,7 @@ export default function Agent() {
               <TextInput
                 underlineColorAndroid={Colors.grey500}
                 onChangeText={(text) => setUser({ ...user, place: text })}
-                placeholder="예) 해운대구"
+                placeholder="예) 수영구"
                 style={styles.input}
               />
             </View>
@@ -82,14 +83,15 @@ export default function Agent() {
                 style={styles.input}
               />
             </View>
+            <Pressable style={[styles.submitButton]} onPress={submit}>
+              <Text style={[styles.text, { color: Colors.white }]}>제출</Text>
+            </Pressable>
           </View>
-          <View style={[styles.border]}>
-            <Text>굳건이 아이콘?</Text>
+
+          <View style={[]}>
+            <Image source={require('../assets/images/gutgeoni.png')} />
           </View>
         </View>
-        <Pressable style={[styles.submitButton]} onPress={submit}>
-          <Text style={[styles.text, { color: Colors.white }]}>제출</Text>
-        </Pressable>
       </KeyboardAwareScrollView>
     </SafeAreaView>
   )
@@ -99,11 +101,10 @@ const styles = StyleSheet.create({
   border: { borderWidth: 1 },
   safeAreaView: { backgroundColor: Colors.white, height: '100%', padding: 20 },
   view: {
-    marginTop: 30,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  wlecomeText: { fontWeight: 'bold', fontSize: 24 },
+  wlecomeText: { fontWeight: 'bold', fontSize: 24, marginBottom: 30 },
   container: {
     width: '40%',
     justifyContent: 'space-between',

@@ -47,20 +47,24 @@ export default function Home() {
               )
             }
           >
-            <Text style={[styles.boxText]}>병역명문가</Text>
+            <Text style={[styles.boxText]}>
+              병적증명서와 같은 {'\n'} 서류 발급 업무
+            </Text>
           </Pressable>
 
           <Pressable style={[styles.box]} onPress={goMobilization}>
-            <Text style={[styles.boxText]}>예비군</Text>
+            <Text style={[styles.boxText]}>예비군 관련 업무</Text>
           </Pressable>
         </View>
         <View style={[styles.content]}>
           <Pressable style={[styles.box]} onPress={goAgent}>
-            <Text style={[styles.boxText]}>사회복무요원</Text>
+            <Text style={[styles.boxText]}>사회복무요원 {'\n'} 관련 업무</Text>
           </Pressable>
 
           <Pressable style={[styles.box]} onPress={goExamination}>
-            <Text style={[styles.boxText]}>생계 감면</Text>
+            <Text style={[styles.boxText]}>
+              생계 감면 및 {'\n'} 병역판정계획 {'\n'} 관련 업무
+            </Text>
           </Pressable>
 
           <Pressable
@@ -76,8 +80,10 @@ export default function Home() {
         </View>
       </View>
 
-      <Pressable style={[styles.help]} onPress={goHelp}>
-        <Text style={[styles.helpText]}>?</Text>
+      <Pressable style={[styles.help]}>
+        <Text onPress={goHelp} style={[styles.helpText]}>
+          도움말
+        </Text>
       </Pressable>
     </SafeAreaView>
   )
@@ -94,18 +100,24 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.blueGrey500,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 4,
+    borderRadius: 10,
   },
-  boxText: { fontSize: 30, color: Colors.white },
+  boxText: {
+    fontSize: 30,
+    color: Colors.white,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    lineHeight: 70,
+  },
   help: { flexDirection: 'row-reverse', marginRight: 20, marginBottom: 20 },
   helpText: {
     borderRadius: 5,
-    width: 70,
+    width: 120,
     height: 60,
     textAlign: 'center',
     textAlignVertical: 'center',
     fontWeight: 'bold',
-    fontSize: 40,
+    fontSize: 35,
     color: Colors.white,
     backgroundColor: Colors.blue500,
   },

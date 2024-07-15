@@ -22,7 +22,7 @@ export default function MainNavigator() {
     return (
       <View style={[styles.header]}>
         <Text style={[styles.welcomeText]}>
-          병무청에 오신것을 환영합니다! 어떤 것을 도와드릴까요?
+          병무청에 본관에 오신것을 환영합니다! 어떤 것을 도와드릴까요?
         </Text>
         <View style={[styles.viewIcon]}>
           <Icon
