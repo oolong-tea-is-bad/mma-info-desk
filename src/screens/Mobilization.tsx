@@ -16,7 +16,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import moment from 'moment'
 import 'moment/locale/ko'
 
-export default function Examination() {
+export default function Mobilization() {
   const setData = async (
     key: string,
     value: { name: string; place: string; etc: string; department: string }

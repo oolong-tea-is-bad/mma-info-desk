@@ -65,7 +65,7 @@ export default function Login() {
 
 const styles = StyleSheet.create({
   safeAreaView: {
-    height: '100%',
+    flex: 1,
     backgroundColor: Colors.white,
     paddingTop: 100,
   },
