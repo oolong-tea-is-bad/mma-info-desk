@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useCallback, useState } from 'react'
+import React, { FC, ReactNode, useCallback, useEffect, useState } from 'react'
 import { Pressable, View, Text, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import Collapsible from 'react-native-collapsible'
@@ -7,11 +7,12 @@ import { MD2Colors as Colors } from 'react-native-paper'
 export type CollapsibleViewProps = {
   children: ReactNode
   header: string
-  navigate: () => void
+  onPress: () => void
 }
 
 const CollapsibleView: FC<CollapsibleViewProps> = (props) => {
-  const [isCollapsed, setIsCollapsed] = useState<boolean>(false)
+  const [isCollapsed, setIsCollapsed] = useState<boolean>(true)
+
   const onPress = () => {
     setIsCollapsed(!isCollapsed)
   }
@@ -31,11 +32,15 @@ const CollapsibleView: FC<CollapsibleViewProps> = (props) => {
         <Text style={[styles.headerText]}>{props.header}</Text>
         <Icon name={iconName} size={20} onPress={onPress} />
       </Pressable>
+
       <Collapsible style={[styles.view]} collapsed={isCollapsed}>
-        <View>{props.children}</View>
-        <Pressable onPress={props.navigate} style={[styles.submitButton]}>
-          <Text>이동</Text>
-        </Pressable>
+        <View style={[styles.textView]}>{props.children}</View>
+
+        <View style={[styles.buttonView]}>
+          <Pressable onPress={props.onPress} style={[styles.submitButton]}>
+            <Text style={[styles.buttonText]}>이동</Text>
+          </Pressable>
+        </View>
       </Collapsible>
     </View>
   )
@@ -48,23 +53,36 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
-    width: 200,
+    width: 250,
     height: 70,
     backgroundColor: Colors.blueGrey200,
     borderRadius: 5,
   },
   view: {
     backgroundColor: Colors.blueGrey100,
-    width: 200,
-    height: 130,
+    width: 250,
+    borderBottomLeftRadius: 5,
+    borderBottomRightRadius: 5,
+  },
+  textView: {
+    padding: 10,
+  },
+  buttonView: {
+    flex: 1,
+    flexDirection: 'row-reverse',
   },
   submitButton: {
-    width: 100,
+    width: 80,
     height: 50,
     backgroundColor: Colors.blue500,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 5,
-    marginTop: 30,
+    margin: 10,
+  },
+  buttonText: {
+    fontWeight: 'bold',
+    color: Colors.white,
+    fontSize: 20,
   },
 })

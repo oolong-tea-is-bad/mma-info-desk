@@ -9,6 +9,8 @@ import Agent from './Agent'
 import Home from './Home'
 import Examination from './Examination'
 import Mobilization from './Mobilization'
+import Service from './Service'
+import Management from './Management'
 import NameList from './NameList'
 import Login from './Login'
 import Help from './Help'
@@ -75,6 +77,20 @@ export default function MainNavigator() {
         }}
       />
       <Stack.Screen
+        name={'Management'}
+        component={Management}
+        options={{
+          title: '운영지원과',
+        }}
+      />
+      <Stack.Screen
+        name={'Service'}
+        component={Service}
+        options={{
+          title: '복무관리과',
+        }}
+      />
+      <Stack.Screen
         name={'NameList'}
         component={NameList}
         options={{
@@ -92,7 +108,7 @@ export default function MainNavigator() {
         name={'Help'}
         component={Help}
         options={{
-          title: '도움말',
+          title: '기타 업무',
         }}
       />
     </Stack.Navigator>

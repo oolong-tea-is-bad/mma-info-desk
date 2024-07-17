@@ -42,46 +42,40 @@ export default function Home() {
           <Pressable
             style={[styles.box]}
             onPress={() =>
-              Alert.alert(
-                '병역명문가 관련 서류 발급은 민원봉사실 1층을 이용해주십시오.'
-              )
+              Alert.alert('병적증명서 발급은 민원봉사실 1층을 이용해주십시오.')
             }
           >
-            <Text style={[styles.boxText]}>
-              병적증명서와 같은 {'\n'} 서류 발급 업무
-            </Text>
+            <Text style={[styles.boxText]}>병적증명서 발급</Text>
           </Pressable>
 
           <Pressable style={[styles.box]} onPress={goMobilization}>
-            <Text style={[styles.boxText]}>예비군 관련 업무</Text>
+            <Text style={[styles.boxText]}>예비군 연기</Text>
           </Pressable>
         </View>
         <View style={[styles.content]}>
           <Pressable style={[styles.box]} onPress={goAgent}>
-            <Text style={[styles.boxText]}>사회복무요원 {'\n'} 관련 업무</Text>
+            <Text style={[styles.boxText]}>사회복무요원{'\n'}자리 배정</Text>
           </Pressable>
 
           <Pressable style={[styles.box]} onPress={goExamination}>
-            <Text style={[styles.boxText]}>
-              생계 감면 및 {'\n'} 병역판정계획 {'\n'} 관련 업무
-            </Text>
+            <Text style={[styles.boxText]}>생계 감면{'\n'}관련 업무</Text>
           </Pressable>
 
-          <Pressable
-            style={[styles.box]}
-            onPress={() =>
-              Alert.alert(
-                '기타 업무 상황들은 아래 연락처로 연락 부탁드리겠습니다: \n 010-xxxx-xxxx | 010-xxxx-xxxx'
-              )
-            }
-          >
+          <Pressable style={[styles.box]} onPress={goHelp}>
             <Text style={[styles.boxText]}>기타 업무</Text>
           </Pressable>
         </View>
       </View>
 
       <Pressable style={[styles.help]}>
-        <Text onPress={goHelp} style={[styles.helpText]}>
+        <Text
+          onPress={() =>
+            Alert.alert(
+              '기타 업무 상황들은 아래 연락처로 연락 부탁드리겠습니다: \n 010-xxxx-xxxx | 010-xxxx-xxxx'
+            )
+          }
+          style={[styles.helpText]}
+        >
           도움말
         </Text>
       </Pressable>
