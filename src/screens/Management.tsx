@@ -13,6 +13,7 @@ import { useState } from 'react'
 import { MD2Colors as Colors } from 'react-native-paper'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { useNavigation } from '@react-navigation/native'
 import moment from 'moment'
 import 'moment/locale/ko'
 
@@ -41,8 +42,11 @@ export default function Management() {
   })
 
   var currTime = moment().format('일자: YYYY-MM-DD | 방문 시각: a hh:mm:ss')
+  const navigation = useNavigation()
+
   const submit = () => {
     setData(currTime, user)
+    navigation.navigate('Home')
     Alert.alert(`2층 운영지원과로 가주십시오.`)
   }
 
