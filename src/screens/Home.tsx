@@ -9,6 +9,8 @@ import {
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { MD2Colors as Colors } from 'react-native-paper'
+import strings from '../assets/translation/localization'
+import { useToggleLang } from '../contexts'
 
 export default function Home() {
   const navigation = useNavigation()
@@ -26,6 +28,9 @@ export default function Home() {
     navigation.navigate('Help')
   }, [])
 
+  // 이게 있어야지 이 자식 컴포넌트가 컨텍스트를 인식하나보네!!!!11
+  useToggleLang()
+
   return (
     <SafeAreaView style={[styles.flex, { backgroundColor: Colors.white }]}>
       <View style={[styles.view, styles.flex]}>
@@ -36,7 +41,7 @@ export default function Home() {
               Alert.alert('신체검사는 민원봉사실 2층을 이용해주십시오.')
             }
           >
-            <Text style={[styles.boxText]}>신체검사</Text>
+            <Text style={[styles.boxText]}>{strings.신체검사}</Text>
           </Pressable>
 
           <Pressable

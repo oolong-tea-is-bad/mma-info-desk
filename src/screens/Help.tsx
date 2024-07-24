@@ -10,8 +10,12 @@ import {
 import { MD2Colors as Colors } from 'react-native-paper'
 import CollapsibleView from '../components/CollapsibleView'
 import { useNavigation } from '@react-navigation/native'
+import { useToggleLang } from '../contexts'
+import strings from '../assets/translation/localization'
 
 export default function Help() {
+  useToggleLang()
+
   const navigation = useNavigation()
   const goMobilization = useCallback(() => {
     navigation.navigate('Mobilization')
@@ -49,10 +53,7 @@ export default function Help() {
           </CollapsibleView>
           <CollapsibleView header="운영지원과" onPress={goManagement}>
             <Text style={[styles.collapsibleText]}>
-              - 병역명문가 홍보 {'\n'}
-              - 대학교 방송학과 {'\n'}
-              - 견학체험 {'\n'}
-              - 병무비리고발
+              {strings.운영지원과_업무}
             </Text>
           </CollapsibleView>
           <CollapsibleView header="사회복무과" onPress={goAgent}>

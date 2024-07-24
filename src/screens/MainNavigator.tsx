@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { MD2Colors as Colors } from 'react-native-paper'
@@ -15,18 +15,37 @@ import NameList from './NameList'
 import Login from './Login'
 import Help from './Help'
 
+import strings from '../assets/translation/localization'
+// import { changeLanguage } from '../assets/translation/localization'
+import { useToggleLang } from '../contexts'
+
 export default function MainNavigator() {
   const Stack = createNativeStackNavigator()
   const navigation = useNavigation()
   const goLogin = useCallback(() => navigation.navigate('Login'), [])
 
+  const toggleLang = useToggleLang()
+
+  // const [currLang, setCurrLang] = useState<string>('한')
+  // const changeLang = () => {
+  //   if (currLang == '한') {
+  //     setCurrLang('EN')
+  //     changeLanguage('한')
+  //   } else {
+  //     setCurrLang('한')
+  //     changeLanguage('EN')
+  //   }
+  //   console.log(strings.getLanguage())
+  // }
+
   function LogoTitle() {
     return (
       <View style={[styles.header]}>
-        <Text style={[styles.welcomeText]}>
-          병무청에 본관에 오신것을 환영합니다! 어떤 것을 도와드릴까요?
-        </Text>
+        <Text style={[styles.welcomeText]}>{strings.홈_헤더}</Text>
         <View style={[styles.viewIcon]}>
+          <Text style={[styles.transText]} onPress={toggleLang}>
+            언어변경
+          </Text>
           <Icon
             size={50}
             name="format-list-bulleted"
@@ -59,7 +78,7 @@ export default function MainNavigator() {
         name={'Agent'}
         component={Agent}
         options={{
-          title: '사회복무과',
+          title: strings.사회복무과,
         }}
       />
       <Stack.Screen
@@ -115,15 +134,20 @@ export default function MainNavigator() {
   )
 }
 
-// prettier-ignore
 const styles = StyleSheet.create({
-    header: {
-      flex: 2, 
-      flexDirection: 'row', 
-      alignItems: 'center', 
-      justifyContent: 'space-between', 
-    },
-    welcomeText: { fontWeight: "bold", fontSize: 25, color: Colors.white },
-    viewIcon: {flexDirection: 'row'},
-    icon : { color: Colors.white}
+  header: {
+    flex: 2,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  welcomeText: { fontWeight: 'bold', fontSize: 25, color: Colors.white },
+  viewIcon: { flexDirection: 'row', alignItems: 'center' },
+  icon: { color: Colors.white },
+  transText: {
+    paddingRight: 20,
+    fontWeight: 'semibold',
+    fontSize: 35,
+    color: Colors.white,
+  },
 })
