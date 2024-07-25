@@ -17,6 +17,8 @@ import { useNavigation } from '@react-navigation/native'
 import moment from 'moment'
 import 'moment/locale/ko'
 
+import strings from '../assets/translation/localization'
+
 export default function Agent() {
   const setData = async (
     key: string,
@@ -47,7 +49,7 @@ export default function Agent() {
   const submit = () => {
     setData(currTime, user)
     navigation.navigate('Home')
-    Alert.alert(`2층 사회복무과로 가주십시오.`)
+    Alert.alert(strings.사회복무과_알림)
   }
 
   return (
@@ -55,40 +57,38 @@ export default function Agent() {
       <KeyboardAwareScrollView>
         <View style={[styles.view]}>
           <View>
-            <Text style={[styles.wlecomeText]}>
-              아래 빈 칸에 '성함', '사시는 지역구', '방문 목적'을 작성해주시고
-              {'\n'}
-              제출 버튼을 눌러주세요.
-            </Text>
+            <Text style={[styles.wlecomeText]}>{strings.제출_헤더}</Text>
             <View style={[styles.container]}>
-              <Text style={[styles.text]}>성함 : </Text>
+              <Text style={[styles.text]}>{strings.성함} : </Text>
               <TextInput
                 underlineColorAndroid={Colors.grey500}
                 onChangeText={(text) => setUser({ ...user, name: text })}
-                placeholder="예) 홍길동"
+                placeholder={strings.성함_예시}
                 style={styles.input}
               />
             </View>
             <View style={[styles.container]}>
-              <Text style={[styles.text]}>시/군/구 : </Text>
+              <Text style={[styles.text]}>{strings.지역구}: </Text>
               <TextInput
                 underlineColorAndroid={Colors.grey500}
                 onChangeText={(text) => setUser({ ...user, place: text })}
-                placeholder="예) 수영구"
+                placeholder={strings.지역구_예시}
                 style={styles.input}
               />
             </View>
             <View style={[styles.container]}>
-              <Text style={[styles.text]}>방문 목적 : </Text>
+              <Text style={[styles.text]}>{strings.방문_목적} : </Text>
               <TextInput
                 underlineColorAndroid={Colors.grey500}
                 onChangeText={(text) => setUser({ ...user, etc: text })}
-                placeholder="예) 담당자 상담"
+                placeholder={strings.방문_목적_예시}
                 style={styles.input}
               />
             </View>
             <Pressable style={[styles.submitButton]} onPress={submit}>
-              <Text style={[styles.text, { color: Colors.white }]}>제출</Text>
+              <Text style={[styles.text, { color: Colors.white }]}>
+                {strings.제출}
+              </Text>
             </Pressable>
           </View>
 

@@ -16,7 +16,6 @@ import Login from './Login'
 import Help from './Help'
 
 import strings from '../assets/translation/localization'
-// import { changeLanguage } from '../assets/translation/localization'
 import { useToggleLang } from '../contexts'
 
 export default function MainNavigator() {
@@ -26,25 +25,13 @@ export default function MainNavigator() {
 
   const toggleLang = useToggleLang()
 
-  // const [currLang, setCurrLang] = useState<string>('한')
-  // const changeLang = () => {
-  //   if (currLang == '한') {
-  //     setCurrLang('EN')
-  //     changeLanguage('한')
-  //   } else {
-  //     setCurrLang('한')
-  //     changeLanguage('EN')
-  //   }
-  //   console.log(strings.getLanguage())
-  // }
-
   function LogoTitle() {
     return (
       <View style={[styles.header]}>
         <Text style={[styles.welcomeText]}>{strings.홈_헤더}</Text>
         <View style={[styles.viewIcon]}>
           <Text style={[styles.transText]} onPress={toggleLang}>
-            언어변경
+            {strings.언어변경}
           </Text>
           <Icon
             size={50}
@@ -85,49 +72,49 @@ export default function MainNavigator() {
         name={'Examination'}
         component={Examination}
         options={{
-          title: '병역판정검사과',
+          title: strings.병역판정검사과,
         }}
       />
       <Stack.Screen
         name={'Mobilization'}
         component={Mobilization}
         options={{
-          title: '동원관리과',
+          title: strings.동원관리과,
         }}
       />
       <Stack.Screen
         name={'Management'}
         component={Management}
         options={{
-          title: '운영지원과',
+          title: strings.운영지원과,
         }}
       />
       <Stack.Screen
         name={'Service'}
         component={Service}
         options={{
-          title: '복무관리과',
+          title: strings.복무관리과,
         }}
       />
       <Stack.Screen
         name={'NameList'}
         component={NameList}
         options={{
-          title: '명부 확인',
+          title: strings.명부확인,
         }}
       />
       <Stack.Screen
         name={'Login'}
         component={Login}
         options={{
-          title: '로그인',
+          title: strings.로그인,
         }}
       />
       <Stack.Screen
         name={'Help'}
         component={Help}
         options={{
-          title: '기타 업무',
+          title: strings.기타업무,
         }}
       />
     </Stack.Navigator>

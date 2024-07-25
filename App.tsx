@@ -9,7 +9,7 @@ import strings from './src/assets/translation/localization'
 import { changeLanguage } from './src/assets/translation/localization'
 
 export default function App() {
-  const [currLang, setCurrLang] = useState<string>('한')
+  const [currLang, setCurrLang] = useState<string>('en')
   const changeLang = () => {
     if (currLang == '한') {
       setCurrLang('EN')
@@ -18,19 +18,7 @@ export default function App() {
       setCurrLang('한')
       changeLanguage('EN')
     }
-    console.log(strings.getLanguage())
   }
-
-  const toggleLang = useCallback(() => {
-    if (currLang == '한') {
-      setCurrLang('EN')
-      changeLanguage('한')
-    } else {
-      setCurrLang('한')
-      changeLanguage('EN')
-    }
-    console.log(strings.getLanguage())
-  }, [])
 
   return (
     <NavigationContainer>

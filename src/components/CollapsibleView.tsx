@@ -3,6 +3,8 @@ import { Pressable, View, Text, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import Collapsible from 'react-native-collapsible'
 import { MD2Colors as Colors } from 'react-native-paper'
+import strings from '../assets/translation/localization'
+import { useToggleLang } from '../contexts'
 
 export type CollapsibleViewProps = {
   children: ReactNode
@@ -17,6 +19,8 @@ const CollapsibleView: FC<CollapsibleViewProps> = (props) => {
     setIsCollapsed(!isCollapsed)
   }
   const iconName = isCollapsed ? 'arrow-down' : 'arrow-up'
+
+  useToggleLang()
 
   return (
     <View>
@@ -38,7 +42,7 @@ const CollapsibleView: FC<CollapsibleViewProps> = (props) => {
 
         <View style={[styles.buttonView]}>
           <Pressable onPress={props.onPress} style={[styles.submitButton]}>
-            <Text style={[styles.buttonText]}>이동</Text>
+            <Text style={[styles.buttonText]}>{strings.이동}</Text>
           </Pressable>
         </View>
       </Collapsible>
@@ -52,9 +56,11 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
+    alignSelf: 'center',
     justifyContent: 'space-around',
     width: 250,
-    height: 70,
+    paddingVertical: 20,
+    // height: 120,
     backgroundColor: Colors.blueGrey200,
     borderRadius: 5,
   },
