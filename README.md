@@ -26,4 +26,4 @@ After asking other social service personnels about their jobs, I organized the f
 ## Contact Me!
 Email: jl12818@nyu.edu
 
-LinkedIn: <linkedin.com/in/juno-lee-a38382287>
+[LinkedIn](https://www.linkedin.com/in/juno-lee-a38382287/)
