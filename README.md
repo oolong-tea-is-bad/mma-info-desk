@@ -23,6 +23,8 @@ After asking other social service personnels about their jobs, I organized the f
 ![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 
+Google Pixel C Tablet was virtually used to test the project. 
+
 ## Contact Me!
 Email: jl12818@nyu.edu
 
