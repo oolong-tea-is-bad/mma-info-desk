@@ -23,5 +23,6 @@ After asking other social service personnels about their jobs, I organized the f
 ![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 
-## Contact
-[Email](jl12818@nyu.edu)
+## Contact Me!
+Email: jl12818@nyu.edu
+LinkedIn: linkedin.com/in/juno-lee-a38382287
