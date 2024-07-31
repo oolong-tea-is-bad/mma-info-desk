@@ -38,7 +38,7 @@ export default {
   운영지원과_업무:
     '- Military-Faithful Family Promotion \n- Mass Communication Major Field Trip \n- Accusation of Corruption',
   사회복무과_업무:
-    '- Placement of Social Service Personnel \n- Exemption of K.A.T.C \n- Document submissions for Industrial Technical Personnel \n- 승선관리',
+    '- Placement of Social Service Personnel \n- Exemption of K.A.T.C \n- Document submissions for Industrial Technical Personnel',
   복무관리과_업무:
     '- Tasks related to Social Service Personnel who are currently on duty',
   병역판정검사과_업무:

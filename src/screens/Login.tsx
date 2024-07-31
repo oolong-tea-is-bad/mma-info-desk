@@ -8,8 +8,8 @@ import strings from '../assets/translation/localization'
 import { useToggleLang } from '../contexts'
 
 export default function Login() {
-  const realUser = 'busan'
-  const realPassword = 'ekdwlrtlf'
+  const realUser = 'user'
+  const realPassword = 'pass'
   const [username, setUsername] = useState<string>('')
   const [password, setPassword] = useState<string>('')
 

@@ -33,12 +33,15 @@ export default function Help() {
     navigation.navigate('Management')
   }, [])
   const goHyunyuk = useCallback(() => {
+    navigation.navigate('Home')
     Alert.alert(strings.현역입영센터_알림)
   }, [])
   const goMinwon1 = useCallback(() => {
+    navigation.navigate('Home')
     Alert.alert(strings.민원봉사실_1층_알림)
   }, [])
   const goMinwon2 = useCallback(() => {
+    navigation.navigate('Home')
     Alert.alert(strings.병역판정검사장_알림)
   }, [])
 
