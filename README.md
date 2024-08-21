@@ -14,10 +14,16 @@ So I decided to make an application that can handle this work!
 
 After asking other social service personnels about their jobs, I organized the features that I needed to add in my application.
 1. Explaining which department handles specific tasks.
-2. Saving and accessing **names**, **addresses**, and the **purposes of visit** along with the **time of visit**.
-3. Supporting English for foreigners.
+https://github.com/user-attachments/assets/893167c1-4319-4039-b601-a8348841daa1
 
-[Screen_recording_20240821_104630.webm](https://github.com/user-attachments/assets/350a4b68-94b0-49e8-91a8-a49bd65806ae)
+
+
+2. Saving and accessing **names**, **addresses**, and the **purposes of visit** along with the **time of visit**.
+
+
+3. Supporting English for foreigners.
+https://github.com/user-attachments/assets/535bf7d6-3c66-46b2-b6f0-4d1c7a4a4cd8
+
 
 
 ## Tools that I used
