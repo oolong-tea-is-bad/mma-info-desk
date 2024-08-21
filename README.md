@@ -14,17 +14,20 @@ So I decided to make an application that can handle this work!
 
 After asking other social service personnels about their jobs, I organized the features that I needed to add in my application.
 1. Explaining which department handles specific tasks.
-https://github.com/user-attachments/assets/893167c1-4319-4039-b601-a8348841daa1
 
+https://github.com/user-attachments/assets/d0d62ccb-9df4-412e-89b9-651ab2f1a5cf
 
+2. Saving **names**, **addresses**, and the **purposes of visit** along with the **time of visit**.
 
-2. Saving and accessing **names**, **addresses**, and the **purposes of visit** along with the **time of visit**.
+https://github.com/user-attachments/assets/94b018c6-f121-4e9a-b35b-09af950f9029
 
+3. Accessing recorded data of the past visitors
 
-3. Supporting English for foreigners.
-https://github.com/user-attachments/assets/535bf7d6-3c66-46b2-b6f0-4d1c7a4a4cd8
+https://github.com/user-attachments/assets/10a540de-0b13-4799-ba84-37e94db34622
 
+4. Supporting English for foreigners.
 
+https://github.com/user-attachments/assets/506ac0c7-91a7-4b3b-930f-6f48d6ca4348
 
 ## Tools that I used
 ![React Native](https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) 
