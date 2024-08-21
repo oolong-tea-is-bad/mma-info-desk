@@ -17,6 +17,9 @@ After asking other social service personnels about their jobs, I organized the f
 2. Saving and accessing **names**, **addresses**, and the **purposes of visit** along with the **time of visit**.
 3. Supporting English for foreigners.
 
+[Screen_recording_20240821_104630.webm](https://github.com/user-attachments/assets/350a4b68-94b0-49e8-91a8-a49bd65806ae)
+
+
 ## Tools that I used
 ![React Native](https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) 
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) 
